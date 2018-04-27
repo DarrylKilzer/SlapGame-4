@@ -9,6 +9,7 @@ function Target(health,name){
     this.health=health;
     this.name=name;
     this.hits=0;
+    this.items=[];
 }
 var target=new Target(120,"The Guy");
 
@@ -19,11 +20,10 @@ function Options(name,modifier,description){
     this.description=description; 
 }
 
-var items={
+var equipment={
     shield: new Options("Shield",0.5,"Strong, protect yourself!"),
-    sword: new Options("Sword",2,"Sharp, lets get to it!")
+    helmet: new Options("Helmet",0.5,"Buckit like, lets get to it!")
 }
-
 
 // Below this are my helper functions that update the hits and health for attacks.
 
@@ -44,6 +44,23 @@ function kick(){
     target.hits++;
     update();
 }
+
+function giveShield(){
+    target.items.push(equipment["shield"]);
+}
+giveShield();// called for testing
+function giveHelmet(){
+    target.items.push(equipment["helmet"])
+}
+giveHelmet();// called for testing
+function addMods(){
+    var totalMods=0;
+    for(var i=0;i<target.items.length;i++){
+        totalMods+=target.items[i].modifier
+    }
+    return totalMods
+}
+alert(addMods())
 
 // End of Helper functions for attacks.
 
