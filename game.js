@@ -1,6 +1,7 @@
 var health=100;
 var name="The Guy";
 var hits=0;
+document.getElementById('name').innerText=`${name}`;
 
 function slap(){
     health--;
