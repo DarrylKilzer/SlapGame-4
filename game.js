@@ -12,11 +12,20 @@ function Target(health,name){
 }
 var target=new Target(120,"The Guy");
 
+// This constructor is used to create items for the user to modify the attack damage or defense against attacks for the target.
 function Options(name,modifier,description){
-    this.attackName= name;
+    this.itemName= name;
     this.modifier=modifier;
     this.description=description; 
 }
+
+var items={
+    shield: new Options("Shield",0.5,"Strong, protect yourself!"),
+    sword: new Options("Sword",2,"Sharp, lets get to it!")
+}
+
+
+// Below this are my helper functions that update the hits and health for attacks.
 
 function slap(){
     target.health--;
@@ -36,6 +45,8 @@ function kick(){
     update();
 }
 
+// End of Helper functions for attacks.
+
 // This function is for updating the user interface whenever a value changes.
 function update(){
     if(target.health<0){
@@ -45,6 +56,7 @@ function update(){
    document.getElementById('hits').innerText= `${target.hits}`; 
 }
 
+//This function is only ran one time to initialize my program with the starting values. I created this mainly because I only want to run the name of the target once.
 function init(){
     update();
     document.getElementById('name').innerText=`${target.name}`;
