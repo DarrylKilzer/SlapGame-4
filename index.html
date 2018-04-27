@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SlapGame</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="game.css">
 </head>
+
 <body>
     <header class="container-fluid">
-        <span>Health: <span id="health"></span></span>
-        <span>Name: <span id="name"></span></span>
-        <span>Hits: <span id="hits"></span></span>
+        <div class="row">
+            <div class="col">
+                <span>Health:
+                    <span id="health"></span>
+                </span>
+                <span>Name:
+                    <span id="name"></span>
+                </span>
+                <span>Hits:
+                    <span id="hits"></span>
+                </span>
+            </div>
+        </div>
+
     </header>
 
     <section class="container-fluid">
-        <!--  TARGET  -->
-    <img src="//placehold.it/200x200" alt="">
+        <div class="row">
+            <div class="col">
+                <!--  TARGET  -->
+                <img src="//placehold.it/200x200" alt="">
+
+                <div id="items">
+                    <!-- This div is for the items -->
+                    <button onclick="giveItem(1)">Shield</button>
+                    <button onclick="giveItem(2)">Helmet</button>
+                    <button onclick="giveItem(3)">Brawndo</button>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <footer class="container-fluid">
+        <!-- Attack buttons  -->
         <button onclick="slap()">Slap</button>
         <button onclick="punch()">Punch</button>
         <button onclick="kick()">Kick</button>
@@ -28,4 +55,5 @@
 
     <script src="game.js"></script>
 </body>
+
 </html>
