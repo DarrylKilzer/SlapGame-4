@@ -8,6 +8,7 @@
     <title>SlapGame</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Bangers|Monoton|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="game.css">
 </head>
 
@@ -15,15 +16,7 @@
     <header class="container-fluid">
         <div class="row">
             <div class="col">
-                <span>Health:
-                    <span id="health"></span>
-                </span>
-                <span>Name:
-                    <span id="name"></span>
-                </span>
-                <span>Hits:
-                    <span id="hits"></span>
-                </span>
+                <h1>The Slap Game</h1>
             </div>
         </div>
 
@@ -31,15 +24,21 @@
 
     <section class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-3 d-flex flex-column">
                 <!--  TARGET  -->
-                <img src="//placehold.it/200x200" alt="">
-
-                <div id="items">
-                    <!-- This div is for the items -->
-                    <button onclick="giveItem(1)">Shield</button>
-                    <button onclick="giveItem(2)">Helmet</button>
-                    <button onclick="giveItem(3)">Brawndo</button>
+                <span>Health:
+                        <span id="health"></span>
+                    </span>
+                    <span>Name:
+                        <span id="name"></span>
+                    </span>
+                    <span>Hits:
+                        <span id="hits"></span>
+                    </span>
+                <img class="img-class" src="henry-hustava-81799-unsplash.png" alt="">
+                    <span></span>
+                <div id="items" class="d-flex justify-content-around pt-3">
+                    <!-- The buttons are added dynamically -->
                 </div>
             </div>
         </div>
@@ -47,10 +46,14 @@
     </section>
 
     <footer class="container-fluid">
-        <!-- Attack buttons  -->
-        <button onclick="slap()">Slap</button>
-        <button onclick="punch()">Punch</button>
-        <button onclick="kick()">Kick</button>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-around pt-3">
+                <!-- Attack buttons  -->
+                <button onclick="attack(1)">Slap</button>
+                <button onclick="attack(2)">Punch</button>
+                <button onclick="attack(3)">Kick</button>
+            </div>
+        </div>
     </footer>
 
     <script src="game.js"></script>
