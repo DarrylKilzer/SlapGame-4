@@ -14,6 +14,8 @@ function Options(name, modifier, description) {
     this.description = description;
 }
 
+//FEEDBACK: Nice descriptions, you should have them show up on the page for the user to see.
+
 // I listed these as defensive items but I used them offensively for the purpose of testing.
 var equipment = {
     0: new Options("Glove", .25, "Do you really need it!"),
@@ -22,6 +24,21 @@ var equipment = {
 }
 
 // Below this are my helper functions that update the hits and health for attacks.
+
+// FEEDBACK: Good job combining the attacks into one function. Another way to do this would be to have the attacks
+// as an object on the user and take in an attack name to select the correct attack.
+//EX:
+// var target = {
+//     attacks:{
+//         slap: 1,
+//         punch: 5,
+//         kick: 10
+//     }
+// }
+// 
+// function attack (attackName){
+//     target.health -= target.attacks[attackName] * addMods()
+// }
 
 function attack(selection) {
     switch (selection) {
@@ -40,6 +57,8 @@ function giveItem(selection) {
     }
 }
 
+//FEEDBACK: Another way to handle the modifier when no items are equipped is to run a check after your for loop to see if
+// the totalMods is 0, if it is, set it to 1 which will do 100% damage in your attack function that way.
 function addMods() {
     var totalMods = 0;
     for (var i = 0; i < target.items.length; i++) {
@@ -49,6 +68,10 @@ function addMods() {
 }
 
 // End of Helper functions for attacks. /////
+
+//FEEDBACK: You might consider creating baseHealth and currentHealth properties on your target, that way you could
+// have items that increase the baseHealth beyond the starting health, like leveling up or potions, but the healing
+// effect can never increase currentHealth above the baseHealth.
 
 // This function is for updating the user interface whenever a value changes.
 function update() {
@@ -63,6 +86,9 @@ function update() {
     document.getElementById('hits').innerText = `${target.hits}`;
 }
 //alert(Object.keys(equipment).length)
+
+//FEEDBACK: Great idea to dynamically draw your buttons, now it doesnt matter how many items you create, you will always have
+// buttons for them without having to manual add more buttons.
 function drawItemButtons() {
     var template = ''
 
@@ -74,6 +100,9 @@ function drawItemButtons() {
     document.getElementById('items').innerHTML = template
 }
 drawItemButtons()
+
+//FEEDBACK: Good job identifying unecessary repeated use of code and moving it apart. Though it is small now, on a larger
+//project or with more happening, every line increases wait time for your user.
 
 //This function is only ran one time to initialize my program with the starting values. I created this mainly because I only want to run the name of the target once.
 function init() {
